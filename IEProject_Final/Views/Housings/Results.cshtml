@@ -1,0 +1,72 @@
+﻿@model IEnumerable<IEProject_Final.Models.House_Rating>
+
+@{
+    ViewBag.Title = "Results";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2 align="center">Results</h2><br />
+    <div class="row">
+        <div class="col-6 col-lg-3 col-sm-3" style="margin-left:30px">
+            <div class="hotel-reservation--area mb-100">
+                @using (Html.BeginForm("Results", "Housings"))
+                {
+
+                    <div class="form-group mb-30">
+                        <label for="guests" hidden>Filters</label>
+                        <div class="row">
+                            <div class="col-6">
+                                <p><b>Schools</b></p>
+                                <ul>
+                                    <li>@Html.RadioButton("Schooltype", "1", new { @id = "SchoolType1" }) Primary</li>
+                                    <li>@Html.RadioButton("Schooltype", "2", new { @id = "SchoolType2" }) Secondary</li>
+                                    <li>@Html.RadioButton("Schooltype", "3", new { @id = "SchoolType3" }) Special</li>
+                                </ul>
+                                @*<p><b>Price</b></p>
+                                    <ul>
+                                        <li>@Html.CheckBox("Blanks[0]", false) < 200$ </li>
+                                        <li>@Html.CheckBox("Blanks[1]", false) 200$ - 500$</li>
+                                        <li>@Html.CheckBox("Blanks[2]", false) >500$ </li>
+                                    </ul>*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <input type="submit" class="btn roberto-btn w-100" value="Submit" />
+                    </div>
+
+
+                }
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 col-sm-6">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Suburb)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Rating)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Suburb)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Rating)
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+

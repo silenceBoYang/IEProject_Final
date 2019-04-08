@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Place";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en" style="margin:0;
+   padding:0;
+   height:100%;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Team 404</title>
+
+    <link rel="icon" href="./img/core-img/favicon.png">
+
+
+</head>
+
+<body>
+
+
+    <div class="container">
+
+
+
+        <div class="col-12 col-lg-12" align="center">
+            <div class="hotel-reservation--area mb-100">
+                @using (Html.BeginForm("Place", "Home"))
+                {
+
+
+                    <div class="form-group mb-30">
+                        <label for="guests"><h4>Choose factors that are important to you</h4></label>
+                        <div class="row">
+                            <div class="col-12" align="left">
+                                <ul>
+                                    <li>@Html.CheckBox("Blanks[0]", false) Education - Choose this if you want easy access to schools.</li>
+                                    <li>@Html.CheckBox("Blanks[1]", false) Security -  We already consider security while making a recommedation, choose it if you need us to give it more priority.</li>
+                                    <li>@Html.CheckBox("Blanks[2]", false) Price - Choose this if you want to live in an afforadable suburb.</li>
+                                    <li>@Html.CheckBox("Blanks[3]", false) Hospital - Choose this if you need easy access to hospitals.</li>
+                                </ul>
+                                <p>Factors above are already concerned in our ratings, tick the box if they are more important to you.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn roberto-btn w-100" style="max-width:100px;" align="center" value="Submit" />
+                        <input type="submit" class="btn" align="center" value="Skip" />
+                    </div>
+
+                }
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+</body>
+
+</html>
+

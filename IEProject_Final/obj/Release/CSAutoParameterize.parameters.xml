@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IEProjectModels-Web.config Connection String" description="IEProjectModels Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:fit5120dbserver.database.windows.net,1433;Initial Catalog=Loveandlive_db;Persist Security Info=False;User ID=rajdeep@fit5120dbserver;Password=Password1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Raj\\source\\repos\\IEProject_Final\\IEProject_Final\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='IEProjectModels']/@connectionString" />
+  </parameter>
+</parameters>
