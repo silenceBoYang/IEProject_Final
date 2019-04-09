@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -33,6 +33,7 @@ namespace IEProject_Final.Controllers
             return View();
         }
 
+        //Gets the bool data and passes to Housings/Results
         [HttpPost]
         public ActionResult Place(bool[] Blanks)
         {

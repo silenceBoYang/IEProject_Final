@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -124,7 +124,7 @@ namespace IEProject_Final.Controllers
             }
             base.Dispose(disposing);
         }
-
+        //Gets the bool array from HomeController and assigns the weights accordingly, passes the weights to query and gets the rating
         [HttpGet]
         public ActionResult Results(bool bool0, bool bool1, bool bool2, bool bool3)
         {
@@ -168,6 +168,7 @@ namespace IEProject_Final.Controllers
             //Debug.WriteLine(test2.ToString());
             return View(test1.OrderByDescending(t => t.Rating));
         }
+        //Returns the rating and the suburbs associated with it
         internal IEnumerable<House_Rating> GetRating(double[] variable)
         {
             var b = variable[0];
@@ -182,13 +183,14 @@ namespace IEProject_Final.Controllers
                                                }).OrderByDescending(t => t.Rating).Take(10).ToList().Select(x => new House_Rating { Suburb = x.Suburb, Rating = Math.Round(x.Rating - 101,2) });
             return query;
         }
+        //Passes the Schooltype to Housings/UpdateResults
         [HttpPost]
         public ActionResult Results(String SchoolType, bool[] Blanks)
         {
             Debug.WriteLine(SchoolType);
             return RedirectToAction("UpdateResults", "Housings", new { @schooltype = SchoolType,/* @bool0 = Blanks[0], @bool1 = Blanks[1], @bool2 = Blanks[2], @bool3 = Blanks[3], @bool4 = Blanks[4], @bool5 = Blanks[5]*/ });
         }
-
+        //Updates the results based on selected schooltype
         public ActionResult UpdateResults(String schooltype/*, bool bool0, bool bool1, bool bool2, bool bool3, bool bool4, bool bool5*/)
         {
 
@@ -226,7 +228,7 @@ namespace IEProject_Final.Controllers
             var test1 = Update(schooltype/*, price, blanks*/);
             return View(test1.OrderByDescending(t => t.SchoolNo));
         }
-
+        //Gets the updated results based on schooltype
         internal IEnumerable<Updated_Result> Update(String schooltype/*, int price, List<bool> variable*/)
         {
             var temp_subs = (List<String>)Session["Suburbs"];
